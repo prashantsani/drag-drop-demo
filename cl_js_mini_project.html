@@ -78,6 +78,9 @@ Please send completed file back along with the submitted form.
     <label for="fileElem">Select some files</label>
   </form>
 </div>
+
+<p class="num_files"></p>
+
 </body>
 
 <script>
@@ -117,7 +120,12 @@ function handleDrop(e) {
   let dt = e.dataTransfer
   let files = dt.files
 
-  console.log(files)
+  for(let a = 0; a<files.length; a++){
+    if(files[a].type==='') {
+      alert('file not supported');
+      return false; 
+    }
+  }
 }
 </script>
 </html>
