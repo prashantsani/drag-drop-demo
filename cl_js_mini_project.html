@@ -2,6 +2,10 @@
 <head>
 <title>CodeLathe Inc Mini Project</title>
 <style>
+*{
+  margin: 0;
+  padding: 0;
+}
 .boxed{
   position: fixed;
   top: 0;
@@ -13,7 +17,7 @@
   height: 300px;
   text-align: center;
   border: 10px dashed green;
-  padding: 30px;
+  padding: 0;
   line-height: 240px;
   box-sizing: border-box;
   font-size: 20px;
@@ -22,6 +26,26 @@
 .highlight{
   transform: scale(1.1);
 }
+.dndboxform{
+  position: relative;
+}
+.dndboxform,
+.dndboxform input{
+  left: 0; top: 0;
+  bottom: 0; width: 100%;
+  z-index: 10;
+  position: absolute;
+}
+.dndboxform input{
+  opacity: 0;
+}
+.dndboxform label{
+  visibility: hidden;
+  position: absolute;
+  left: 0; top: 0;
+}
+
+
 </style>
 </head>
 <body>
@@ -48,7 +72,11 @@ Please send completed file back along with the submitted form.
 
 -->
 <div id="dndbox" class="boxed">
-  Drop here.
+  <form class="dndboxform">
+    <p>Drop Here</p>
+    <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+    <label for="fileElem">Select some files</label>
+  </form>
 </div>
 </body>
 
