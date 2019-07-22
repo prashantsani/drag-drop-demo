@@ -18,7 +18,7 @@
   text-align: center;
   border: 10px dashed green;
   padding: 0;
-  line-height: 240px;
+  line-height: 270px;
   box-sizing: border-box;
   font-size: 20px;
   transition: all 0.3s ease-in-out;
@@ -109,6 +109,15 @@ function highlight(e) {
 
 function unhighlight(e) {
   dropArea.classList.remove('highlight')
+}
+
+dropArea.addEventListener('drop', handleDrop, false)
+
+function handleDrop(e) {
+  let dt = e.dataTransfer
+  let files = dt.files
+
+  console.log(files)
 }
 </script>
 </html>
