@@ -125,6 +125,13 @@ function handleDrop(e) {
       alert('file not supported');
       return false; 
     }
+  } 
+
+  // If all file formats are known, show the number of files dragged
+  if(files.length===1){
+    alert('Got 1 file')
+  }else{
+    alert(`Got X ${files.length} files`) // ES6 Template literal
   }
 }
 </script>
